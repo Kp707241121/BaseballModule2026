@@ -2,7 +2,7 @@
 from common_stats   import compute_team_stats
 from leagueManager  import LeagueManager
 
-STAT_ORDER    = ['R','HR','RBI','OBP','SB','K','W','SV','ERA','WHIP']
+STAT_ORDER    = ['R','HR','RBI','OBP','SB','IP', 'K','W','SV','ERA','WHIP']
 AVERAGE_STATS = {'OBP'}
 
 def compute_season_stats():
