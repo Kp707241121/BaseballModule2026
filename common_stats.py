@@ -62,6 +62,8 @@ def compute_team_stats(league, *, periods, stat_order, avg_stats):
 
         for stat in stat_order:
             if stat == 'ERA':
+            updated_stats['IP'] = ip
+            elif stat == 'ERA':
                 updated_stats['ERA'] = era
             elif stat == 'WHIP':
                 updated_stats['WHIP'] = whip
