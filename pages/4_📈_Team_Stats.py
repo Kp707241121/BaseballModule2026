@@ -148,4 +148,3 @@ fig_radar = px.line(
     title="Normalized Stat Comparison Across Teams"
 )
 st.plotly_chart(fig_radar)
-
