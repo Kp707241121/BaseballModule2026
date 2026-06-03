@@ -6,7 +6,7 @@ STAT_ORDER    = ['R','HR','RBI','OBP','SB','K','W','SV','ERA','WHIP']
 AVERAGE_STATS = {'OBP'}
 
 def compute_season_stats():
-    manager    = LeagueManager(league_id=121531, year=2025)
+    manager    = LeagueManager(league_id=393414923, year=2026)
     league     = manager.get_league()
     max_period = league.currentMatchupPeriod
 

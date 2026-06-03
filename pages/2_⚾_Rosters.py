@@ -10,7 +10,7 @@ with open("teams.json", "r") as f:
     team_dict = json.load(f)
 
 # --- Connect to League ---
-manager = LeagueManager(league_id=121531, year=2025)
+manager = LeagueManager(league_id=393414923, year=2026)
 league = manager.get_league()
 
 # --- Helper: Map team_id to team_index ---

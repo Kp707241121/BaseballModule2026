@@ -4,17 +4,17 @@ __pycache__/
 *.so
 *.egg-info/
 
-# Virtual environment
+# Virtual environments
 venv/
-.env
+.venv/
 
-# Streamlit
+# Environment / secrets
+.env
 .streamlit/secrets.toml
 
 # System files
 .DS_Store
 Thumbs.db
 
-# Data files (optional)
-team_stats.json
-teams.json
+# Streamlit cache/log noise
+.streamlit/cache/
