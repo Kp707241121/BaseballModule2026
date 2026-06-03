@@ -18,3 +18,4 @@ Thumbs.db
 
 # Streamlit cache/log noise
 .streamlit/cache/
+teams.json

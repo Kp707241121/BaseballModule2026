@@ -2,7 +2,7 @@ from leagueManager import LeagueManager
 
 
 # --- Init league ---
-manager = LeagueManager(league_id=121531, year=2025)
+manager = LeagueManager(league_id=393414923, year=2026)
 league = manager.get_league()
 
 ACTIVITY_MAP = {
