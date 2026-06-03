@@ -1,7 +1,7 @@
 import json
 from leagueManager import LeagueManager
 
-manager = LeagueManager(league_id=121531, year=2025)
+manager = LeagueManager(league_id=393414923, year=2026)
 league = manager.get_league()
 
 # Create correct mapping of current team IDs to team names

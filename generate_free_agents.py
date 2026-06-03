@@ -1,7 +1,7 @@
 from leagueManager import LeagueManager
 from free_agents import FreeAgents
 
-manager = LeagueManager(league_id=121531, year=2025)
+manager = LeagueManager(league_id=393414923, year=2026)
 fa = FreeAgents(manager)
 
 free_agents = fa.get_free_agents(size=5)
