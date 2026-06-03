@@ -4,7 +4,7 @@ import json
 from espn_api.baseball.league import League as lg
 from leagueManager import LeagueManager
 
-def get_draft_summary(league_id=121531, year=2025):
+def get_draft_summary(league_id=393414923, year=2026):
     manager = LeagueManager(league_id=league_id, year=year)
     d = lg(league_id=league_id, year=year, espn_s2=manager.espn_s2, swid=manager.swid)
 

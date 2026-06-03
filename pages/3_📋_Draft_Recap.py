@@ -9,7 +9,16 @@ summary = get_draft_summary()
 
 # Define static team order (manual or preserved)
 # Define your desired team order
-teams = ["Jameis' Crab Shack", "Uncle Juniors", "Wandering Franco", "Dodger Dogs","The Fighting Elvises", "Ball Tickler", "Trojan Kongs", "So Much (For) Fooly Cooly", "Steven's Super Team", "Wahoo Lives"]  # Replace with actual team names in desired order
+teams = ["Hoern Dogs", 
+         "Steven's Smart Team", 
+         "So Much (For) Fooly Cooly", 
+         "The Fighting Elvises",
+         "Ramiritek", 
+         "Jameis' Crab Shack", 
+         "Mike's Magnificent Team", 
+         "Dodger Dogs", 
+         "Wahoo Lives", 
+         "No Schlitt, Sherlock!"]  # Replace with actual team names in desired order
 
 # Get all unique round numbers
 rounds = sorted({rnd for team in summary.values() for rnd in team})

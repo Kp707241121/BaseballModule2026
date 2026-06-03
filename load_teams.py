@@ -12,7 +12,7 @@ output_dir = "rosters"
 os.makedirs(output_dir, exist_ok=True)
 
 # Connect to league
-manager = LeagueManager(league_id=121531, year=2025)
+manager = LeagueManager(league_id=393414923, year=2026)
 league = manager.get_league()
 
 # Loop through each team using team_id directly

@@ -21,7 +21,7 @@ SPLIT_OPTIONS = {
 # --- Load Free Agents ---
 @st.cache_data
 def load_agents(stat_split_type):
-    manager = LeagueManager(league_id=121531, year=2025)
+    manager = LeagueManager(league_id=393414923, year=2026)
     return FreeAgents(manager).get_free_agents(size=50, stat_split_type=stat_split_type)
 
 # --- Normalize for Heatmap Color ---
