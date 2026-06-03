@@ -85,7 +85,7 @@ st.dataframe(
 )
 
 # --- Logos (unchanged) ---
-manager = LeagueManager(league_id=121531, year=2025)
+manager = LeagueManager(league_id=393414923, year=2026)
 league  = manager.get_league()
 logo_map= {t.team_name:t.logo_url for t in league.teams}
 
