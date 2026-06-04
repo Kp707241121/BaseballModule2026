@@ -18,6 +18,10 @@ standings = league.standings()
 records = [(team.wins + team.ties / 2) for team in standings]
 max_record = max(records)
 
+st.write("Logo debug:")
+for team in standings:
+    st.write(team.team_name, team.logo_url)
+    
 # Build DataFrame
 df_standings = pd.DataFrame([{
     "Overall": idx + 1,
