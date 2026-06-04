@@ -5,7 +5,7 @@ import plotly.express as px
 from sklearn.preprocessing import MinMaxScaler
 
 # --- Constants ---
-STAT_ORDER = ['R', 'HR', 'RBI', 'OBP', 'SB', 'K', 'W', 'SV', 'ERA', 'WHIP']
+STAT_ORDER = ['R', 'HR', 'RBI', 'OBP', 'SB', 'K', 'QS', 'SV', 'ERA', 'WHIP']
 INVERT_STATS = {'ERA', 'WHIP'}
 
 from week   import compute_week_stats
