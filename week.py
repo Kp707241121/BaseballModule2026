@@ -2,8 +2,8 @@
 from common_stats   import compute_team_stats
 from leagueManager  import LeagueManager
 
-STAT_ORDER    = ['R','HR','RBI','OBP','SB','K','W','SV','ERA','WHIP']
-AVERAGE_STATS = {'OBP'}
+STAT_ORDER    = ['R','HR','RBI','OBP','OPS', 'SB','K','W','SV','ERA','WHIP']
+AVERAGE_STATS = {'OBP', 'OPS'}
 
 def compute_week_stats():
     manager    = LeagueManager(league_id=393414923, year=2026)
