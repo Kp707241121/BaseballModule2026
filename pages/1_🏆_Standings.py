@@ -40,15 +40,27 @@ if standings:
 
     df_standings = pd.DataFrame([
         {
-            "Overall": idx + 1,
             "Team": team.team_name.strip(),
             "Wins": team.wins,
             "Losses": team.losses,
             "Ties": team.ties,
+            "Record Score": team.wins + team.ties / 2,
             "GB": round(max_record - (team.wins + team.ties / 2), 1)
         }
-        for idx, team in enumerate(standings)
+        for team in standings
     ])
+
+    # Tied records get the same Overall rank.
+    # Example: 1, 2, 2, 2, 2, 2, 7, 7, 9, 9
+    df_standings["Overall"] = (
+        df_standings["Record Score"]
+        .rank(method="dense", ascending=False)
+        .astype(int)
+    )
+
+    df_standings = df_standings[
+        ["Overall", "Team", "Wins", "Losses", "Ties", "GB"]
+    ]
 
     st.dataframe(
         df_standings,
