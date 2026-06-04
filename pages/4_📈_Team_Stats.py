@@ -12,8 +12,8 @@ from sklearn.preprocessing import MinMaxScaler
 from week   import compute_week_stats
 from season import compute_season_stats
 # --- Constants ---
-STAT_ORDER     = ['R','HR','RBI','OBP','OPS', 'SB','K','W','SV','ERA','WHIP']
-FORMAT_RED     = {'R','HR','RBI','OBP','OPS', 'SB','K','W','SV'}
+STAT_ORDER     = ['R','HR','RBI','OBP','OPS', 'SB','K','QS','SV','ERA','WHIP']
+FORMAT_RED     = {'R','HR','RBI','OBP','OPS', 'SB','K','QS','SV'}
 ASCENDING_STATS= {'ERA','WHIP'}
 FLOAT_COLS     = {'OBP','OPS', 'ERA','WHIP'}
 FORMAT_DICT    = {s:"{:.3f}" if s in FLOAT_COLS else "{:.0f}" 

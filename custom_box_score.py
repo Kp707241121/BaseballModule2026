@@ -10,7 +10,7 @@ STATS_MAP = {
     18: 'OPS',
     23: 'SB',
     48: 'K',
-    53: 'W',
+    63: 'QS', # Quality Starts
     57: 'SV',
     47: 'ERA',
     41: 'WHIP',
