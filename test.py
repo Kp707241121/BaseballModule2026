@@ -6,7 +6,7 @@ from week import compute_week_stats
 import json
 
 # --- Constants ---
-STAT_ORDER     = ['R','HR','RBI','OBP','SB','K','W','SV','ERA','WHIP']
+STAT_ORDER     = ['R','HR','RBI','OBP','SB','K','QS','SV','ERA','WHIP']
 FLOAT_COLS     = {'OBP','ERA','WHIP'}
 FORMAT_DICT    = {s:"{:.3f}" if s in FLOAT_COLS else "{:.0f}" 
                   for s in STAT_ORDER}
