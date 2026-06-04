@@ -18,31 +18,28 @@ standings = league.standings()
 records = [(team.wins + team.ties / 2) for team in standings]
 max_record = max(records)
 
-st.write("Logo debug:")
-for team in standings:
-    st.write(team.team_name, team.logo_url)
-    
-# Build DataFrame
+logo_map = {
+    team.team_name.strip(): team.logo_url
+    for team in league.teams
+}
+
 df_standings = pd.DataFrame([{
     "Overall": idx + 1,
-    "Logo": team.logo_url,
-    "Team": team.team_name,
+    "Logo": logo_map.get(team.team_name.strip(), team.logo_url),
+    "Team": team.team_name.strip(),
     "Wins": team.wins,
     "Losses": team.losses,
     "Ties": team.ties,
     "GB": round(max_record - (team.wins + team.ties / 2), 1)
 } for idx, team in enumerate(standings)])
 
-st.data_editor(
+st.dataframe(
     df_standings,
     column_config={
         "Logo": st.column_config.ImageColumn("Team Logo", width="small")
-    },
+        },
     hide_index=True,
-    use_container_width=True
-)
-
-
+    use_container_width=True)
 
 # --- final Standings ---
 def get_top3_for_year(league_id: int, year: int):
@@ -73,17 +70,16 @@ df_summary = pd.DataFrame(standings_summary)
 st.header("👑 Final Standings")
 st.dataframe(df_summary, use_container_width=True, hide_index=True)
 
+
 # --- Schedule ---
 
 st.header("📅 Team Schedule Viewer")
 schedule_data = []
 
-# Pick team
-team_names = [team.team_name for team in league.teams]
+team_names = [team.team_name.strip() for team in league.teams]
 selected_team_name = st.selectbox("Select a team to view schedule:", team_names)
-selected_team = next(team for team in league.teams if team.team_name == selected_team_name)
+selected_team = next(team for team in league.teams if team.team_name.strip() == selected_team_name)
 
-# Display team schedule
 for week_number, matchup in enumerate(selected_team.schedule, start=1):
     if matchup.home_team == selected_team:
         opponent = matchup.away_team
@@ -96,22 +92,27 @@ for week_number, matchup in enumerate(selected_team.schedule, start=1):
         score = matchup.away_team_live_score
         opp_score = matchup.home_team_live_score
 
-    opponent_name = opponent.team_name if opponent else "BYE"
+    opponent_name = opponent.team_name.strip() if opponent else "BYE"
 
     schedule_data.append({
-        "Week": week_number,  # ✅ Now explicitly tracking week
+        "Week": week_number,
+        "Location": location,
         "Opponent": opponent_name,
         "Score": score,
         "OpponentScore": opp_score
     })
 
-# Display
 df = pd.DataFrame(schedule_data).sort_values(by="Week")
-df["Result"] = df.apply(
-    lambda row: "W" if row["Score"] > row["OpponentScore"]
-    else "L" if row["Score"] < row["OpponentScore"]
-    else "T" if row["Score"] == row["OpponentScore"]
-    else "Pending",
-    axis=1
-)
+
+def get_result(row):
+    if pd.isna(row["Score"]) or pd.isna(row["OpponentScore"]):
+        return "Pending"
+    if row["Score"] > row["OpponentScore"]:
+        return "W"
+    if row["Score"] < row["OpponentScore"]:
+        return "L"
+    return "T"
+
+df["Result"] = df.apply(get_result, axis=1)
+
 st.dataframe(df, use_container_width=True, hide_index=True)
