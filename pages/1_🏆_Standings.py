@@ -54,7 +54,7 @@ if standings:
     # Example: 1, 2, 2, 2, 2, 2, 7, 7, 9, 9
     df_standings["Overall"] = (
         df_standings["Record Score"]
-        .rank(method="dense", ascending=False)
+        .rank(method="min", ascending=False)
         .astype(int)
     )
 
