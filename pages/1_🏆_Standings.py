@@ -18,6 +18,12 @@ standings = league.standings()
 records = [(team.wins + team.ties / 2) for team in standings]
 max_record = max(records)
 
+st.write("Logo test")
+for team in standings:
+    st.write(team.team_name, team.logo_url)
+    st.image(team.logo_url, width=50)
+
+
 logo_map = {
     team.team_name.strip(): team.logo_url
     for team in league.teams
