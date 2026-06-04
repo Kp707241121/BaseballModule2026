@@ -79,6 +79,7 @@ for activity in activities:
             seen.add(key)
             activity_rows.append({
                 "Date": date_str,
+                "Team": team_name,
                 "Action": simplified_action,
                 "Player": player_name
             })
@@ -89,13 +90,13 @@ df_activity = pd.DataFrame(activity_rows)
 st.subheader("🟢 Added Players")
 df_add = df_activity[df_activity["Action"] == "Add"]
 if not df_add.empty:
-    st.dataframe(df_add[["Date", "Player"]].sort_values("Date", ascending=False), use_container_width=True, hide_index=True)
+    st.dataframe(df_add[["Date", "Team", "Player"]].sort_values("Date", ascending=False), use_container_width=True, hide_index=True)
 else:
     st.info("No recent players added.")
 
 st.subheader("🔴 Dropped Players")
 df_drop = df_activity[df_activity["Action"] == "Drop"]
 if not df_drop.empty:
-    st.dataframe(df_drop[["Date", "Player"]].sort_values("Date", ascending=False), use_container_width=True, hide_index=True)
+    st.dataframe(df_drop[["Date", "Team", "Player"]].sort_values("Date", ascending=False), use_container_width=True, hide_index=True)
 else:
     st.info("No recent players dropped.")
