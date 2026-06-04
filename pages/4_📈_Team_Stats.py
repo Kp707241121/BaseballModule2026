@@ -69,7 +69,15 @@ def load_team_df(selected_mode: str) -> pd.DataFrame:
     df   = pd.DataFrame.from_dict(data, orient="index")
     df.index.name = "Team"
     # reorder columns
-    return df[STAT_ORDER]
+    missing_cols = [col for col in STAT_ORDER if col not in df.columns]
+
+    if missing_cols:
+        st.warning(f"Missing stats from data: {missing_cols}")
+        st.write("Stats actually returned:", list(df.columns))
+        for col in missing_cols:
+            df[col] = 0
+
+    return df.reindex(columns=STAT_ORDER)
 
 # load data
 df_stats = load_team_df(mode)
